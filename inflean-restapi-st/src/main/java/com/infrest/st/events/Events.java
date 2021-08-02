@@ -2,6 +2,12 @@ package com.infrest.st.events;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -17,7 +23,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @ToString
+@Entity
 public class Events {
+	
+	@Id @GeneratedValue
 	private Integer id;
 	private String name;
 	private String description;
@@ -31,6 +40,7 @@ public class Events {
 	private int limitOfenrollment;
 	private boolean offline;
 	private boolean free;
+	@Enumerated(EnumType.STRING)
 	private EventStatus eventSatus;
 
 }
